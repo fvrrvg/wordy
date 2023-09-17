@@ -5,8 +5,8 @@ Wordy is a fun word-guessing game inspired by Wordle. Unlike Wordle, Wordy is no
 
 ## Installation
 
-wordy requires [Go](https://go.dev/) to build from the source; or check pre-built [releases](https://github.com/fvrrvg/wordy/releases/) page instead.
-
+### Build from source
+Make sure you have [Go](https://golang.org/) installed. Then
 clone the repo
 ```sh
 git clone https://github.com/fvrrvg/wordy
@@ -23,6 +23,14 @@ Run
 ```sh
 ./wordy
 ```
+### Download pre-built binaries
+Download the latest release from [here](https://github.com/fvrrvg/wordy/releases/) and run it.
+### Homebrew
+```sh
+brew tap fvrrvg/wordy
+brew install wordy
+```
+
 ## Usage
 * --common (-c): Guess a common word
 * --rare (-r): Guess a rare word
