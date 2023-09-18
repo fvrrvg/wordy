@@ -36,7 +36,6 @@ builds:
       - amd64
       - arm64
 
-
   - id: binary-windows
     main: ./
     binary: "{{ .ProjectName }}"
