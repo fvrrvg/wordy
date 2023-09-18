@@ -31,5 +31,4 @@ jobs:
       - name: Run GoReleaser
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: goreleaser release --clean --timeout 1h
-
+        run: goreleaser release --rm-dist
