@@ -99,7 +99,10 @@ release:
 
     ```shell
     # Download the binary
-    curl -LO https://github.com/fvrrvg/wordy/releases/download/{{ .Tag }}/{{ .ProjectName }}-v{{ .Version }}.linux.amd64
+    curl -LO https://github.com/fvrrvg/wordy/releases/download/{{ .Tag }}/{{ .ProjectName }}-v{{ .Version }}.linux.amd64.tar.gz
+
+    # Extract the tar
+    tar -xzf {{ .ProjectName }}-v{{ .Version }}.linux.amd64.tar.gz
 
     # Move the binary in to your PATH
     mv {{ .ProjectName }}-v{{ .Version }}.linux.amd64 /usr/local/bin/{{ .ProjectName }}
@@ -110,18 +113,12 @@ release:
 
     ### Verify checksums file signature
 
-    The checksums file provided within the artifacts attached to this release is signed using [Cosign](https://docs.sigstore.dev/cosign/overview/) with GitHub OIDC. To validate the signature of this file, run the following commands:
-
     ```shell
     # Download the checksums file, certificate and signature
     curl -LO https://github.com/fvrrvg/wordy/releases/download/{{ .Tag }}/{{ .ProjectName }}-v{{ .Version }}.checksums.txt
-    curl -LO https://github.com/fvrrvg/wordy/releases/download/{{ .Tag }}/{{ .ProjectName }}-v{{ .Version }}.checksums.pem
-    curl -LO https://github.com/fvrrvg/wordy/releases/download/{{ .Tag }}/{{ .ProjectName }}-v{{ .Version }}.checksums.sig
-
+  
     # Verify the checksums file
     cosign verify-blob {{ .ProjectName }}-v{{ .Version }}.checksums.txt \
-      --certificate {{ .ProjectName }}-v{{ .Version }}.checksums.pem \
-      --signature {{ .ProjectName }}-v{{ .Version }}.checksums.sig \
       --certificate-identity-regexp=https://github.com/fvrrvg \
       --certificate-oidc-issuer=https://token.actions.githubusercontent.com
     ```
