@@ -1,18 +1,15 @@
 project_name: wordy
-
+project_description: cli game like wordle but not limited to 5-letter words
 
 before:
   hooks:
     - go mod download
 
-
 env:
   - CGO_ENABLED=0
   - COSIGN_YES=true
 
-
 report_sizes: true
-
 
 builds:
   - id: binary-linux
