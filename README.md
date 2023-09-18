@@ -27,7 +27,7 @@ Run
 Download the latest release from [here](https://github.com/fvrrvg/wordy/releases/) and run it.
 ### Homebrew
 ```sh
-brew tap fvrrvg/wordy
+brew tap fvrrvg/tap/wordy
 brew install wordy
 ```
 
